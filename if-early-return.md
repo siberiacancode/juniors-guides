@@ -1,0 +1,33 @@
+# Ранний выход из функции
+
+Мы часто сталкиваемся с ситуациями, когда нам нужно проверить несколько условий перед выполнением основной логики функции. Многие я думаю встречали код с множеством вложенных условий:
+
+```typescript
+const init = () => {
+  const rawAuthToken = localStorage.getItem("authToken");
+
+  if (authToken) {
+    const token = JSON.parse(rawAuthToken);
+
+    if (token.user && token.user.id) {
+      console.log(`✅ success #${token.user.id}`);
+    }
+  }
+};
+```
+
+Такой код сложно читать из-за большой вложенности. Ранний выход делает код более предсказуемым и легким для понимания. Каждая проверка становится явной, и мы точно знаем, почему функция может прекратить выполнение на определенном этапе.
+
+```typescript
+const init = () => {
+  const rawAuthToken = localStorage.getItem("authToken");
+
+  if (!authToken) return;
+
+  const token = JSON.parse(rawAuthToken);
+
+  if (!token.user || !token.user.id) return;
+
+  console.log(`✅ success #${token.user.id}`);
+};
+```
