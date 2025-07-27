@@ -19,5 +19,5 @@ const getUser = async (id) => {
   return response;
 };
 
-const getUser = async (id) => fetch(`/api/user/${id}`);
+const getUser = (id) => fetch(`/api/user/${id}`);
 ```

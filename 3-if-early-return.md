@@ -4,9 +4,9 @@
 
 ```typescript
 const init = () => {
-  const rawAuthToken = localStorage.getItem("authToken");
+  const rawAuthToken = localStorage.getItem("rawAuthToken");
 
-  if (authToken) {
+  if (rawAuthToken) {
     const token = JSON.parse(rawAuthToken);
 
     if (token.user && token.user.id) {
@@ -20,9 +20,9 @@ const init = () => {
 
 ```typescript
 const init = () => {
-  const rawAuthToken = localStorage.getItem("authToken");
+  const rawAuthToken = localStorage.getItem("rawAuthToken");
 
-  if (!authToken) return;
+  if (!rawAuthToken) return;
 
   const token = JSON.parse(rawAuthToken);
 
