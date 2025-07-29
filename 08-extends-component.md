@@ -3,7 +3,7 @@
 При создании компонентов в React следует использовать расширение наших компонентов для наследования всех свойств HTML элементов. Это делает компоненты масштабируемыми и гибкими:
 
 ```tsx
-import type { ComponentProps, ReactNode} from "react";
+import type { ComponentProps, ReactNode } from "react";
 
 interface ButtonProps extends ComponentProps<"button"> {
   children: ReactNode;
