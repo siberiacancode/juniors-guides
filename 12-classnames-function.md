@@ -5,19 +5,19 @@
 ```tsx
 import type { ComponentProps, ReactNode } from "react";
 
-import styles from './Component.module.css'
+import styles from './Button.module.css'
 
-interface ComponentProps extends ComponentProps<"div"> {
+interface ButtonProps extends ComponentProps<"button"> {
   children: ReactNode;
   selected?: boolean;
   variant?: "primary" | "secondary";
   ...
 }
 
-const Component = ({ variant = "primary", selected = false, children, ...props }: ComponentProps) => (
-  <div className={`${styles.button} ${styles[variant]} ${selected ? styles.selected : ''}`} {...props}>
+const Button = ({ variant = "primary", selected = false, children, ...props }: ButtonProps) => (
+  <button className={`${styles.button} ${styles[variant]} ${selected ? styles.selected : ''}`} {...props}>
     {children}
-  </div>
+  </button>
 );
 ```
 
@@ -27,19 +27,19 @@ const Component = ({ variant = "primary", selected = false, children, ...props }
 import type { ComponentProps, ReactNode } from "react";
 import clsx from "clsx";
 
-import styles from './Component.module.css'
+import styles from './Button.module.css'
 
-interface ComponentProps extends ComponentProps<"div"> {
+interface ButtonProps extends ComponentProps<"button"> {
   children: ReactNode;
   selected?: boolean;
   variant?: "primary" | "secondary";
   ...
 }
 
-const Component = ({ variant = "primary", selected = false, children, ...props }: ComponentProps) => (
-  <div className={clsx(styles.button, styles[variant], selected && styles.selected)} {...props}>
+const Button = ({ variant = "primary", selected = false, children, ...props }: ButtonProps) => (
+  <button className={clsx(styles.button, styles[variant], selected && styles.selected)} {...props}>
     {children}
-  </div>
+  </button>
 );
 ```
 

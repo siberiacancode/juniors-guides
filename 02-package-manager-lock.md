@@ -5,7 +5,7 @@
 ```
 ...
 package.json
-package-lock.json - npm
+package-lock.json — npm
 ```
 
 Когда мы работаем в команде, важно использовать один package manager и в наших скриптах:

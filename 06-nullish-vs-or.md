@@ -1,4 +1,4 @@
-# Оператор nullish или or
+# Оператор ?? против ||
 
 При работе со значениями по умолчанию мы часто используем оператор `||` (логическое ИЛИ), но иногда он может привести к неожиданному поведению. В JavaScript есть более точный оператор `??` (nullish coalescing), который работает только с `null` и `undefined`:
 
@@ -9,15 +9,14 @@ const config = {
   cache: null,
 };
 
-const port = config.port ?? 3000; // 0
-const port = config.port || 3000; // 3000
+const portNullish = config.port ?? 3000; // 0
+const portOr = config.port || 3000; // 3000
 
-const debug = config.debug ?? true; // false
-const debug = config.debug || true; // true
+const debugNullish = config.debug ?? true; // false
+const debugOr = config.debug || true; // true
 
-const cache = config.cache ?? "memory"; // "memory"
-const cache = config.cache || "memory"; // "memory"
+const cacheNullish = config.cache ?? "memory"; // "memory"
+const cacheOr = config.cache || "memory"; // "memory"
 ```
 
-Оператор `||` считает "ложными" следующие значения: **false**, **0**, **""**, **null**, **undefined**, **NaN**.
-Оператор `??` работает только с **null** и **undefined**. Явное применение `??` со значениями, которые могут быть только в позициях "существует" или "не существует", повышает читаемость и понятность вашего кода.
+Оператор `||` считает «ложными» следующие значения: false, 0, "", null, undefined, NaN. Оператор `??` работает только с null и undefined. Явное применение `??` там, где важно различать «нет значения» и «значение 0/false/пустая строка», повышает читаемость и предсказуемость кода.
